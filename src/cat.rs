@@ -13,7 +13,6 @@ impl Plugin for CatPlugin {
     }
 }
 
-
 #[derive(Component, Deref, DerefMut)]
 struct AnimationTimer(Timer);
 //https://bevyengine.org/examples/2d/sprite-sheet/
@@ -62,4 +61,9 @@ fn cat_movement_system(mut query: Query<(&Velocity, &mut Transform), With<Cat>>)
         translation.x += velocity.x * TIME_STEP*BASE_SPEED;
         translation.y += velocity.y * TIME_STEP*BASE_SPEED;
     }
+}
+
+
+fn cat_state_system(){
+    todo!();
 }
