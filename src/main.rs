@@ -1,6 +1,8 @@
 use bevy::{prelude::*, window::WindowDescriptor,render::texture::ImageSettings,asset::LoadState};
 use bevy::window::WindowId;
 use bevy::winit::WinitWindows;
+
+
 use cat::CatPlugin;
 use crate::scraper::ScraperPlugin;
 
@@ -54,8 +56,8 @@ fn setup_bevy(){
     .insert_resource(WindowDescriptor {
         transparent: true,
         decorations: false,
-        width: 200.0,
-        height: 200.0,
+        width: 800.0,
+        height: 800.0,
         resizable: false,
         ..default()
     })
@@ -71,6 +73,10 @@ fn setup_winit(windows: NonSend<WinitWindows>,) {
     //bevy doesn't have a way to set always_on_top, so use winit 
     let primary = windows.get_window(WindowId::primary()).unwrap();
     primary.set_always_on_top(true);
+    let _clickthrough = match primary.set_cursor_hittest(false){
+        Err(why) => panic!("couldn't open: {}",why),
+        Ok(file) => file,
+    };
 }
 
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {

@@ -1,4 +1,4 @@
-use crate::{GameTexture, components::{Velocity, Cat}, BASE_SPEED, TIME_STEP};
+use crate::{GameTexture, CatState, components::{Velocity, Cat}, BASE_SPEED, TIME_STEP};
 use bevy::prelude::*;
 
 
@@ -37,6 +37,7 @@ fn animate_sprite(
 
 fn spawn_cat(
     mut commands: Commands,
+    //mut cat_state: ResMut<CatState>,
     game_texture: Res<GameTexture>,
     mut texture_atlases: ResMut<Assets<TextureAtlas>>,
 ){
