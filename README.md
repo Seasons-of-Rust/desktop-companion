@@ -1,6 +1,6 @@
-# Summer of Rust Project Template
+# Desktop Companion
 
-This is a template to get you started with your Rust project!
+A witchy feline that hangs out on your desktop, written in Rust. Work in progress. 
 
 ## License
 
